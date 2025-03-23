@@ -1,0 +1,24 @@
+### Linux template
+*~
+# KDE directory preferences
+.directory
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Pycache
+__pycache__/
+
+### Video
+.mp4
+.avi
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
