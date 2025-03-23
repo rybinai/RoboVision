@@ -4,27 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
-        }
-        .button {
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Выберите задачу:</h1>
-        <a href="/object_detection" class="button">Распознавание (посторонних) объектов</a>
-        <a href="/human_detection" class="button">Распознавание человека</a>
-        <a href="/human_segmentation" class="button">Сегментация человека</a>
+    <div class="container centered-content">
+        <!-- Заголовок RoboVision -->
+        <div class="title">RoboVision</div>
+
+        <!-- Панель для задач -->
+        <div class="panel">
+            <h2>Выберите задачу:</h2>
+            <a href="/object_detection" class="button">Распознавание посторонних объектов</a>
+            <a href="/human_detection" class="button">Распознавание человека</a>
+            <a href="/human_segmentation" class="button">Сегментация человека</a>
+        </div>
     </div>
 </body>
 </html>

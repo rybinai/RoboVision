@@ -4,25 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Распознавание людей</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .video {
-            width: 45%;
-            height: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1 style="text-align: center;">Распознавание людей</h1>
-    <div class="container">
-        <div class="video">
+    <div class="container centered-content">
+        <h1>Распознавание людей</h1>
+        <div class="video-container">
             <h2>Результаты YOLO</h2>
-            <img src="{{ url_for('video_feed_human') }}" width="100%">
+            <img src="{{ url_for('video_feed_human') }}" class="video">
         </div>
     </div>
 </body>
