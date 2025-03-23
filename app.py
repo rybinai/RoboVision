@@ -1,7 +1,7 @@
 from flask import Flask, Response, render_template
 import cv2
-from models.human_detection import init_human_detection, generate_human_frames
-from models.object_detection import init_object_detection, generate_object_frames
+from modules.human_detection import init_human_detection, generate_human_frames
+from modules.object_detection import init_object_detection, generate_object_frames
 
 app = Flask(__name__)
 

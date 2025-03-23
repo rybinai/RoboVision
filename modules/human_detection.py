@@ -4,7 +4,7 @@ import random
 
 def init_human_detection():
     # Инициализация YOLO модели
-    model = YOLO('people.pt')
+    model = YOLO('models/people.pt')
     model.fuse()
     return model
 
@@ -15,7 +15,7 @@ def generate_human_frames(cap, model):
             break
 
         # Обработка кадра YOLO
-        results = model.track(frame, iou=0.4, conf=0.5, persist=True, imgsz=608, verbose=False, tracker="botsort.yaml")
+        results = model.track(frame, iou=0.4, conf=0.5, persist=True, imgsz=608, verbose=False, tracker="models/botsort.yaml")
 
         if results[0].boxes.id is not None:
             boxes = results[0].boxes.xyxy.cpu().numpy().astype(int)
