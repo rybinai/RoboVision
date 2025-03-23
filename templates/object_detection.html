@@ -4,31 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Распознавание объектов</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .video {
-            width: 45%;
-            height: auto;
-        }
-        .video-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1 style="text-align: center;">Распознавание объектов</h1>
-    <div class="container">
+    <div class="container centered-content">
+        <h1>Распознавание объектов</h1>
         <div class="video-container">
             <h2>Реальный кадр</h2>
             <h2>Разница (чёрно-белый)</h2>
-            <img src="{{ url_for('video_feed_object') }}" width="100%">
+            <img src="{{ url_for('video_feed_object') }}" class="video">
         </div>
     </div>
 </body>
