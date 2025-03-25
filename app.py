@@ -2,12 +2,12 @@ from flask import Flask, Response, render_template
 import cv2
 from modules.human_detection import init_human_detection, generate_human_frames
 from modules.object_detection import init_object_detection, generate_object_frames
-from modules.human_segmentation import init_segmentation_frames, generate_human_segmentation_frames
+from modules.human_segmentation import init_human_segmentation, generate_human_segmentation_frames
 
 app = Flask(__name__)
 
 # Инициализация камеры
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Инициализация модуля распознавания людей
 human_model = init_human_detection()
@@ -16,7 +16,7 @@ human_model = init_human_detection()
 background_gray = init_object_detection(cap)
 
 # Инициализация модели сегментации людей
-segmentation_model = init_segmentation_frames().to('cpu')
+segmentation_model = init_human_segmentation()
 
 # Главная страница
 @app.route('/')
@@ -54,4 +54,4 @@ def video_feed_human_segmentation():
     return Response(generate_human_segmentation_frames(cap, segmentation_model), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=4999, debug=False)
