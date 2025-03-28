@@ -7,13 +7,13 @@ from modules.human_segmentation import init_human_segmentation, generate_human_s
 app = Flask(__name__)
 
 # Инициализация камеры
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 # Инициализация модуля распознавания людей
 human_model = init_human_detection()
 
 # Инициализация модуля распознавания посторонних объектов
-background_gray = init_object_detection(cap)
+object_detector = init_object_detection(cap)
 
 # Инициализация модели сегментации людей
 segmentation_model = init_human_segmentation()
@@ -41,7 +41,7 @@ def human_segmentation():
 # Видеопоток для распознавания объектов
 @app.route('/video_feed_object')
 def video_feed_object():
-    return Response(generate_object_frames(cap, background_gray), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_object_frames(cap, object_detector), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 # Видеопоток для распознавания людей
 @app.route('/video_feed_human')

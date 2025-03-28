@@ -9,7 +9,6 @@ def init_human_segmentation():
     return model
 
 def generate_human_segmentation_frames(cap, model):
-    cap = cv2.VideoCapture(1)  # Захват с камеры
 
     while True:
         success, frame = cap.read()
