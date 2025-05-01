@@ -13,7 +13,7 @@ class ObjectDetector:
 
         ret, background = self.cap.read()
         if not ret:
-            raise RuntimeError("Не удалось захватить фоновый кадр")
+            raise RuntimeError("Камера не доступна")
             
         background_gray = cv2.cvtColor(background, cv2.COLOR_BGR2GRAY)
         background_gray = cv2.GaussianBlur(background_gray, (21, 21), 0)

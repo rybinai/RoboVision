@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 # Инициализация камеры
 cap = cv2.VideoCapture(0)
+if not cap.isOpened():
+        raise RuntimeError("Камера не доступна")
 
 # Инициализация модуля распознавания людей
 human_model = init_human_detection()
